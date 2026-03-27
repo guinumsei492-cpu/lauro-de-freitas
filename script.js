@@ -1,36 +1,34 @@
-const lugares = [
+const fotosReais = [
     {
-        nome: "Buraco da Velha",
-        info: "A famosa piscina natural de Vilas do Atlântico. Águas rasas e cristalinas perfeitas para relaxar na maré baixa.",
-        // Foto Real do Buraco da Velha (Fonte: Correio 24h)
-        foto: "https://correio-cdn1.b-cdn.net/wp-content/uploads/2023/11/01153401/Buraco-da-Velha.jpg"
+        titulo: "Buraco da Velha (Vilas)",
+        texto: "A piscina natural mais famosa da região de Vilas do Atlântico.",
+        imagem: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg/800px-Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg"
     },
     {
-        nome: "Parque Shopping Bahia",
-        info: "O maior centro de compras e lazer da região, com arquitetura moderna e diversas opções de gastronomia.",
-        // Foto Real da Fachada do Parque Shopping (Fonte: Bahia de Valor)
-        foto: "https://www.bahiadevalor.com.br/wp-content/uploads/2020/03/parque-shopping-bahia-2.jpg"
+        titulo: "Parque Shopping Bahia",
+        texto: "O principal centro de compras e lazer da nossa cidade.",
+        imagem: "https://i.imgur.com/vHpxl4Z.jpeg"
     },
     {
-        nome: "Praia de Vilas do Atlântico",
-        info: "Uma das praias mais bonitas da Bahia, famosa pelos seus coqueirais e excelente estrutura de barracas.",
-        // Foto Real de Vilas (Fonte: Pref. de Lauro de Freitas)
-        foto: "https://www.laurodefreitas.ba.gov.br/2021/assets/uploads/noticias/29729a43a6d71f7601f09514f9d140e7.jpg"
+        titulo: "Praia de Vilas",
+        texto: "Orla paradisíaca com coqueirais e águas quentes.",
+        imagem: "https://i.imgur.com/yK6XU4Q.jpeg"
     }
 ];
 
-function renderizarLugares() {
-    const grid = document.getElementById('lista-lugares');
+function carregarSite() {
+    const container = document.getElementById('lista-final');
     
-    if (grid) {
-        grid.innerHTML = ""; 
-        lugares.forEach(l => {
-            grid.innerHTML += `
-                <div class="card" style="background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,0.1); margin-bottom:20px;">
-                    <img src="${l.foto}" alt="${l.nome}" style="width:100%; height:250px; object-fit:cover; display:block;" onerror="this.src='https://via.placeholder.com/600x400?text=Carregando+Imagem...'">
-                    <div class="card-content" style="padding:20px; text-align:left;">
-                        <h3 style="color:#004aad; margin-bottom:10px; font-family:sans-serif;">${l.nome}</h3>
-                        <p style="color:#555; font-size:14px; font-family:sans-serif;">${l.info}</p>
+    if (container) {
+        container.innerHTML = ""; // Limpa o que tiver lá
+        
+        fotosReais.forEach(item => {
+            container.innerHTML += `
+                <div style="background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+                    <img src="${item.imagem}" style="width:100%; height:250px; object-fit:cover; display:block;">
+                    <div style="padding:20px;">
+                        <h3 style="margin:0 0 10px; color:#004aad;">${item.titulo}</h3>
+                        <p style="margin:0; color:#666; font-size:14px;">${item.texto}</p>
                     </div>
                 </div>
             `;
@@ -38,4 +36,5 @@ function renderizarLugares() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderizarLugares);
+// Roda assim que o site abrir
+window.onload = carregarSite;
