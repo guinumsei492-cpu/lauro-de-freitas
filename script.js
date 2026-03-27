@@ -1,47 +1,44 @@
-// Dados reais e links de imagem que funcionam (Wikipedia/Imgur)
-const pontosReais = [
+const pontos = [
     {
-        nome: "Buraco da Velha (Vilas)",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg/800px-Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg",
-        desc: "Piscina natural famosa em Vilas do Atlântico, perfeita na maré baixa."
+        nome: "Buraco da Velha",
+        data: "Ponto Turístico Natural",
+        img: "https://correio-cdn1.b-cdn.net/wp-content/uploads/2023/11/01153401/Buraco-da-Velha.jpg",
+        desc: "Formação de recifes em Vilas do Atlântico que atrai milhares de banhistas desde a década de 70."
     },
     {
         nome: "Parque Shopping Bahia",
-        img: "https://i.imgur.com/vHpxl4Z.jpeg",
-        desc: "O maior centro de compras e lazer da região, na Estrada do Coco."
+        data: "Inaugurado em: 17 de Março de 2020",
+        img: "https://www.bahiadevalor.com.br/wp-content/uploads/2020/03/parque-shopping-bahia-2.jpg",
+        desc: "Um dos maiores centros comerciais do estado, localizado na estratégica Estrada do Coco."
     },
     {
-        nome: "Praia de Ipitanga",
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Praia_de_Ipitanga.jpg/800px-Praia_de_Ipitanga.jpg",
-        desc: "Conhecida pelas ondas fortes, ideal para o surf e lazer na orla."
+        nome: "Igreja Matriz de Santo Amaro",
+        data: "Fundada em: 1584",
+        img: "https://i.imgur.com/vHpxl4Z.jpeg",
+        desc: "Marco zero da cidade. A paróquia de Santo Amaro de Ipitanga é o coração histórico de Lauro de Freitas."
+    },
+    {
+        nome: "Terminal Aeroporto",
+        data: "Inaugurado em: 2018 (Metrô)",
+        img: "https://i.imgur.com/yK6XU4Q.jpeg",
+        desc: "Ponto de conexão vital que integrou Lauro de Freitas definitivamente à malha de transporte da capital."
     }
 ];
 
-function carregarConteudo() {
-    const grid = document.getElementById('grade-principal');
-    
-    // Verifica se o elemento existe antes de tentar usar
-    if (grid) {
-        grid.innerHTML = ""; // Limpa qualquer conteúdo prévio
-        
-        // Mapeia os dados reais para o HTML do card
-        const cardsHTML = pontosReais.map(ponto => `
+function render() {
+    const grade = document.getElementById('grade-principal');
+    if(grade) {
+        grade.innerHTML = pontos.map(p => `
             <div class="card-item">
-                <div class="card-img" style="background-image: url('${ponto.img}')">
-                    </div>
+                <div class="card-img" style="background-image: url('${p.img}')"></div>
                 <div class="card-info">
-                    <h3>${ponto.nome}</h3>
-                    <p>${ponto.desc}</p>
+                    <span class="data-marco">${p.data}</span>
+                    <h3>${p.nome}</h3>
+                    <p>${p.desc}</p>
                 </div>
             </div>
-        `).join(''); // Une todos os cards em uma única string
-        
-        // Injeta o HTML gerado na grade
-        grid.innerHTML = cardsHTML;
-    } else {
-        console.error("Erro: Não foi possível encontrar o elemento #grade-principal");
+        `).join('');
     }
 }
 
-// Executa a função assim que a janela (window) carregar completamente
-window.onload = carregarConteudo;
+window.onload = render;
