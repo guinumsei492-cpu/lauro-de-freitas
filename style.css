@@ -1,0 +1,46 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #00ff88; /* Verde neon pra destacar */
+    --text: #f8fafc;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(rgba(0,0,0,0.6), var(--bg)), url('https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=1000&q=80'); /* Imagem de fundo opcional */
+    background-size: cover;
+}
+
+.container { padding: 20px; max-width: 1200px; margin: auto; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #334155;
+}
+
+.card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+.card-img { height: 180px; background: #334155; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+.card-info { padding: 20px; }
+
+.card-info h3 { margin: 0 0 10px; color: var(--accent); }
+
+footer { text-align: center; padding: 40px; color: #64748b; }
