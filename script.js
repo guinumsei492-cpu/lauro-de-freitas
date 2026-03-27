@@ -1,55 +1,36 @@
-// Base de dados dos pontos turísticos
-const locais = [
+const lugares = [
     {
         nome: "Buraco da Velha",
-        descricao: "Uma piscina natural protegida por recifes em Vilas do Atlântico. Na maré baixa, a água é calma e cristalina, ideal para famílias e para relaxar.",
-        categoria: "Praias & Natureza",
-        // Imagem real do Buraco da Velha
-        imagem: "https://imgur.com/u3lYF6Z.png"
+        info: "A piscina natural mais famosa de Vilas. Águas mornas e tranquilas na maré baixa.",
+        foto: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
     },
     {
         nome: "Parque Shopping Bahia",
-        descricao: "O maior centro de compras e lazer da região, com arquitetura moderna, dezenas de restaurantes, cinemas de última geração e alameda de serviços.",
-        categoria: "Compras & Lazer",
-        // Imagem real do Parque Shopping
-        imagem: "https://imgur.com/k6lP09V.png"
+        info: "Um dos maiores centros de compras da Bahia, com lazer completo e gastronomia.",
+        foto: "https://images.unsplash.com/photo-1567449303078-57ad995bd17a?auto=format&fit=crop&w=600&q=80"
     },
     {
-        nome: "Praia de Vilas do Atlântico",
-        descricao: "Conhecida por seu extenso calçadão, barracas de praia estruturadas e coqueirais. É um dos pontos mais badalados e procurados da cidade.",
-        categoria: "Praias & Badalação",
-        // Imagem real de Vilas
-        imagem: "https://imgur.com/vH9R67N.png"
+        nome: "Praia de Vilas",
+        info: "Calçadão impecável, coqueirais e as melhores barracas de praia da região.",
+        foto: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=600&q=80"
     },
     {
         nome: "Shopping Estrada do Coco",
-        descricao: "Um shopping tradicional e aconchegante, focado em conveniência, com boa variedade de lojas e praça de alimentação no coração de Lauro.",
-        categoria: "Compras & Serviços",
-        // Imagem real do Shopping Estrada do Coco
-        imagem: "https://imgur.com/5O5yW4T.png"
+        info: "O shopping pioneiro de Lauro, unindo tradição e praticidade no dia a dia.",
+        foto: "https://images.unsplash.com/photo-1542211440-2729938b8989?auto=format&fit=crop&w=600&q=80"
     }
 ];
 
-// Motor do Sistema: Preenche os cards dinamicamente
-function carregarCards() {
-    const container = document.getElementById('pontos-turisticos');
-    let htmlContent = '';
+const grid = document.getElementById('lista-lugares');
 
-    locais.forEach(local => {
-        htmlContent += `
-            <article class="card">
-                <img src="${local.imagem}" alt="${local.nome}" class="card-img">
-                <div class="card-info">
-                    <h3>${local.nome}</h3>
-                    <p>${local.descricao}</p>
-                    <span class="tag">${local.categoria}</span>
-                </div>
-            </article>
-        `;
-    });
-
-    container.innerHTML = htmlContent;
-}
-
-// Inicia o sistema quando a página carrega
-window.onload = carregarCards;
+lugares.forEach(l => {
+    grid.innerHTML += `
+        <div class="card">
+            <img src="${l.foto}" alt="${l.nome}">
+            <div class="card-content">
+                <h3>${l.nome}</h3>
+                <p>${l.info}</p>
+            </div>
+        </div>
+    `;
+});
