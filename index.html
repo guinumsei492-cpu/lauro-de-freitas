@@ -3,23 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauro de Freitas | Guia Turístico</title>
+    <title>Explore Lauro de Freitas | O Guia Completo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <h1>Explora Lauro 🌴</h1>
-        <p>O melhor de Lauro de Freitas em um só lugar</p>
+        <div class="logo">ExploreLauro</div>
+        <nav>
+            <ul>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#pontos">Pontos Turísticos</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="grid" id="pontos-turisticos">
-            <!-- Os cards serão gerados pelo JavaScript -->
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Lauro de Freitas</h1>
+                <p>Onde a beleza natural encontra a história da Bahia.</p>
+                <a href="#pontos" class="btn">Descobrir Lugares</a>
+            </div>
+        </section>
+
+        <section id="historia">
+            <div class="container">
+                <h2>Nossa História</h2>
+                <div class="historia-grid">
+                    <div class="historia-texto">
+                        <p>Originária de uma sesmaria doada por Tomé de Sousa, a região era conhecida inicialmente como Freguesia de Santo Amaro de Ipitanga.</p>
+                        <p>A emancipação política aconteceu em **31 de julho de 1962**. Nesta data, o distrito se separou de Salvador e tornou-se o município de **Lauro de Freitas**, nomeado em homenagem ao engenheiro e político Lauro Farani Pedreira de Freitas.</p>
+                    </div>
+                    <div class="historia-info">
+                        <h3>Fundação</h3>
+                        <p class="ano">1962</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pontos">
+            <div class="container">
+                <h2>O Que Visitar</h2>
+                <div class="grid" id="pontos-turisticos">
+                    </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido por Souza</p>
+        <p>&copy; 2026 - Guia Lauro de Freitas City</p>
     </footer>
 
     <script src="script.js"></script>
