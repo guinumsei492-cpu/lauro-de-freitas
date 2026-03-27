@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauro de Freitas | Portal Blindado</title>
+    <title>Lauro de Freitas | Portal Noir</title>
     <style>
-        /* CSS PREMIUM DARK MODE */
+        /* CSS PREMIUM NOIR-ESTILO */
         html { scroll-behavior: smooth; }
-        body { font-family: sans-serif; margin: 0; background: #000; color: #fff; }
-        header { background: #111; padding: 25px 0; text-align: center; border-bottom: 2px solid #333; position: sticky; top: 0; z-index: 1000; }
+        body { font-family: sans-serif; margin: 0; background: #000; color: #fff; line-height: 1.6; }
+        header { background: #111; padding: 20px; text-align: center; border-bottom: 2px solid #333; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
         
+        /* HERO SECTION */
+        #hero { 
+            height: 70vh; 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('buraco.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            filter: grayscale(100%);
+        }
+        .hero-content h1 { font-size: clamp(30px, 8vw, 60px); font-weight: bold; text-transform: uppercase; margin: 0 0 10px; }
+        .hero-content p { color: #aaa; font-size: 16px; margin-bottom: 30px; }
+        .btn-explorar { padding: 15px 30px; border: 2px solid #fff; color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+        .btn-explorar:hover { background: #fff; color: #000; }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        h1, h2 { font-weight: bold; margin-top: 0; text-transform: uppercase; letter-spacing: 2px; }
+        h2.secao-titulo { text-align: center; font-size: 28px; text-transform: uppercase; letter-spacing: 3px; color: #aaa; margin-bottom: 50px; }
         
         /* GRID DE FOTOS CORRIGIDA */
         .grid-fotos { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
+            gap: 25px; 
             margin-top: 40px;
         }
 
-        /* CARD SUPER-RESISTENTE */
+        /* CARD SUPER-RESISTENTE COM FOTOS LOCAIS */
         .card { 
             background: #1a1a1a; 
             border: 1px solid #333; 
             overflow: hidden; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             transition: 0.3s;
         }
         .card:hover { transform: translateY(-5px); border-color: #555; }
         
-        /* O SEGREDO: BACKUP VISUAL CASO A FOTO FALHE */
-        .card .img-container {
-            width: 100%; height: 260px; 
-            background: #222; /* Fundo cinza caso falhe */
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-        }
+        .card .img-container { width: 100%; height: 260px; overflow: hidden; position: relative; }
         
         .card img { 
             width: 100%; height: 100%; object-fit: cover; 
@@ -46,69 +53,71 @@
         }
         .card:hover img { filter: grayscale(0%); }
         
-        /* Badges de Data/Marco */
-        .badge {
-            position: absolute; top: 15px; left: 15px;
-            background: rgba(0,0,0,0.8); color: #fff;
-            padding: 5px 12px; font-size: 11px; font-weight: bold;
-            border-radius: 2px; text-transform: uppercase;
-        }
-
         .card-info { padding: 25px; }
-        h3 { margin: 0 0 10px; font-size: 22px; color: #fff; text-transform: uppercase; }
-        p { color: #ccc; font-size: 14px; line-height: 1.6; margin: 0; }
+        .card-info h3 { margin: 0 0 5px; font-size: 22px; color: #fff; text-transform: uppercase; }
+        .card-info span.data { color: #888; font-size: 12px; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 10px; }
+        .card-info p { color: #ccc; font-size: 14px; margin: 0; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>LAUROCITY | OFICIAL 🌴</h1>
+        <div class="logo">LAUROCITY | OFICIAL 🌴</div>
     </header>
 
-    <div class="container">
-        <h2 style="text-align: center; color: #aaa;">Pontos Turísticos Reais</h2>
+    <section id="hero">
+        <div class="hero-content">
+            <h1>LAURO DE FREITAS / BAHIA</h1>
+            <p>ONDAS. PROGRESSO. HISTÓRIA.</p>
+            <a href="#secao-fotos" class="btn-explorar">Explorar a Cidade</a>
+        </div>
+    </section>
+
+    <div class="container" id="secao-fotos">
+        <h2 class="secao-titulo">Pontos Turísticos Reais</h2>
         
         <div class="grid-fotos">
             
             <div class="card">
                 <div class="img-container">
-                    <span class="badge">Ponto Natural</span>
                     <img src="buraco.jpg" alt="Buraco da Velha, Vilas do Atlântico" onerror="this.src='https://via.placeholder.com/600x400?text=Buraco+da+Velha'">
                 </div>
                 <div class="card-info">
+                    <span class="data">Ponto Natural Histórico</span>
                     <h3>Buraco da Velha</h3>
-                    <p>Formação de recifes em Vilas do Atlântico que cria piscinas naturais únicas na maré baixa. Ponto de encontro histórico da orla.</p>
+                    <p>Formação de recifes em Vilas do Atlântico que cria piscinas naturais únicas na maré baixa. Onde a Natureza Esculpe.</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="img-container">
-                    <span class="badge">Março/2020</span>
                     <img src="parque.jpg" alt="Parque Shopping Bahia" onerror="this.src='https://via.placeholder.com/600x400?text=Parque+Shopping'">
                 </div>
                 <div class="card-info">
+                    <span class="data">Inaugurado: 17 Março 2020</span>
                     <h3>Parque Shopping Bahia</h3>
-                    <p>O maior e mais moderno centro de compras e lazer da região, localizado na estratégica Estrada do Coco. Polo comercial vital.</p>
+                    <p>O maior e mais moderno centro de compras e lazer da região, localizado na estratégica Estrada do Coco. O Pulsar do Comércio Moderno.</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="img-container">
-                    <span class="badge">Fundada em 1584</span>
                     <img src="igreja.jpg" alt="Igreja de Santo Amaro" onerror="this.src='https://via.placeholder.com/600x400?text=Igreja+Matriz'">
                 </div>
                 <div class="card-info">
-                    <h3>Igreja de Santo Amaro</h3>
-                    <p>O coração histórico e marco zero da antiga Santo Amaro de Ipitanga. Erguida no século XVI, é patrimônio cultural e religioso da cidade.</p>
+                    <span class="data">Fundada em 1584</span>
+                    <h3>Igreja Matriz de Santo Amaro</h3>
+                    <p>O coração histórico e marco zero da antiga Santo Amaro de Ipitanga. Erguida no século XVI, é alicerce de fé e cultura.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <footer style="text-align: center; padding: 50px; background: #111; border-top: 1px solid #333; color: #555;">
-        Lauro de Freitas &copy; 2026 - Desenvolvido para Vercel
+    <footer style="text-align: center; padding: 50px; background: #111; border-top: 1px solid #333; color: #444;">
+        Lauro de Freitas &copy; 2026 - Onde a tradição encontra o futuro.
     </footer>
 
 </body>
+</html>
 </html>
