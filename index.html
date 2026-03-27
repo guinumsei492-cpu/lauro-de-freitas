@@ -3,45 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauro de Freitas City | Guia Oficial</title>
+    <title>Lauro de Freitas Oficial</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background:#f4f4f4; font-family:'Poppins', sans-serif; margin:0; padding:0;">
 
-    <header>
-        <div class="logo">LauroCity 🌴</div>
-        <nav>
-            <a href="#historia">História</a>
-            <a href="#pontos">Pontos Turísticos</a>
-        </nav>
+    <header style="background:#004aad; color:white; padding:40px 20px; text-align:center;">
+        <h1 style="margin:0;">Lauro de Freitas 🌴</h1>
+        <p style="margin:5px 0 0;">Emancipada em 31 de Julho de 1962</p>
     </header>
 
-    <section id="hero">
-        <div class="hero-text">
-            <h1>Descubra Lauro de Freitas</h1>
-            <p>Entre o mar e o progresso: Conheça os melhores picos da cidade.</p>
+    <div style="max-width:1000px; margin:40px auto; padding:0 20px;">
+        <h2 style="text-align:center; color:#333;">Pontos Turísticos Reais</h2>
+        
+        <!-- O ID TEM QUE SER EXATAMENTE ESSE: lista-final -->
+        <div id="lista-final" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; margin-top:30px;">
+            <!-- O JAVASCRIPT VAI COLOCAR AS FOTOS AQUI -->
         </div>
-    </section>
+    </div>
 
-    <section id="historia" class="container">
-        <h2>Nossa História</h2>
-        <p>A região era a antiga Freguesia de Santo Amaro de Ipitanga. Em <b>31 de julho de 1962</b>, o distrito se emancipou de Salvador e tornou-se o município de <b>Lauro de Freitas</b>, nomeado em homenagem ao engenheiro e político baiano.</p>
-        <div class="badge">Emancipação: 1962</div>
-    </section>
-
-    <section id="pontos" class="container">
-        <h2>Pontos Turísticos Reais</h2>
-        <div class="grid" id="lista-lugares">
-            <!-- O JavaScript vai injetar as fotos reais aqui -->
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 - Lauro de Freitas City - Projeto Souza</p>
+    <footer style="text-align:center; padding:30px; background:#333; color:white; margin-top:50px;">
+        <p>&copy; 2026 - Lauro de Freitas City</p>
     </footer>
 
-    <!-- O v=100 força a Vercel a limpar o cache e mostrar as fotos novas -->
-    <script src="script.js?v=100"></script>
+    <!-- v=500 força a atualização total -->
+    <script src="script.js?v=500"></script>
 </body>
 </html>
