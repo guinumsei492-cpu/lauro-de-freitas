@@ -21,16 +21,28 @@ const lugares = [
     }
 ];
 
-const grid = document.getElementById('lista-lugares');
+// Função que cria os cards na tela
+function renderizarLugares() {
+    const grid = document.getElementById('lista-lugares');
+    
+    if (grid) {
+        grid.innerHTML = ""; // Limpa antes de carregar
+        lugares.forEach(l => {
+            const cardHTML = `
+                <div class="card">
+                    <img src="${l.foto}" alt="${l.nome}" style="width:100%; height:200px; object-fit:cover;">
+                    <div class="card-content" style="padding:20px;">
+                        <h3 style="color:#004aad;">${l.nome}</h3>
+                        <p>${l.info}</p>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += cardHTML;
+        });
+    } else {
+        console.error("Erro: Não achei o elemento 'lista-lugares' no seu HTML.");
+    }
+}
 
-lugares.forEach(l => {
-    grid.innerHTML += `
-        <div class="card">
-            <img src="${l.foto}" alt="${l.nome}">
-            <div class="card-content">
-                <h3>${l.nome}</h3>
-                <p>${l.info}</p>
-            </div>
-        </div>
-    `;
-});
+// Isso garante que o código só roda DEPOIS do HTML carregar
+document.addEventListener('DOMContentLoaded', renderizarLugares);
