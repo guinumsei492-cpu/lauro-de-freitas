@@ -3,151 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauro de Freitas | O Agito da Bahia 🌴</title>
+    <title>Lauro de Freitas | Portal 360° 🌴</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; filter: none !important; }
-        html { scroll-behavior: smooth; }
-        body { background: #f0f2f5; color: #1a1a1a; }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #f8fafc; color: #1e293b; }
+
+        /* HEADER & NAVIGATION */
         header { 
             background: linear-gradient(135deg, #004e92, #000428); 
-            color: white; padding: 30px; text-align: center;
+            color: white; padding: 20px; text-align: center;
             border-bottom: 5px solid #f1c40f; position: sticky; top: 0; z-index: 1000;
         }
 
+        /* HERO SECTION */
         #hero { 
-            height: 45vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('buraco.jpg') center/cover;
+            height: 50vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('buraco.jpg') center/cover;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            padding: 20px;
         }
+        .hero-content h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; letter-spacing: -1px; }
+        .hero-content p { font-size: 1.2rem; background: #f1c40f; color: #000; display: inline-block; padding: 5px 20px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 40px 20px; }
+
+        /* SEÇÃO DE NÚMEROS (HABITANTES ETC) */
+        .stats-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; margin-top: -80px; margin-bottom: 60px;
+        }
+        .stat-card { 
+            background: white; padding: 30px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid #f1c40f;
+        }
+        .stat-card i { font-size: 2.5rem; color: #004e92; margin-bottom: 10px; }
+        .stat-card h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #000; }
+        .stat-card p { font-size: 0.9rem; color: #64748b; font-weight: 600; text-transform: uppercase; }
 
         .secao-titulo { 
-            font-size: 32px; color: #004e92; text-transform: uppercase; 
-            margin: 50px 0 25px 0; border-left: 10px solid #f1c40f; padding-left: 20px;
-            display: flex; align-items: center; gap: 15px;
+            font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #004e92; 
+            margin: 50px 0 30px 0; display: flex; align-items: center; gap: 15px;
         }
+        .secao-titulo::after { content: ""; flex: 1; height: 2px; background: #e2e8f0; }
 
-        /* GRID DE EVENTOS & CARDS */
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        /* GRID DE CARDS GERAL */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        .card-evento { 
-            background: white; border-radius: 25px; overflow: hidden; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.4s;
-            position: relative;
+        .card { 
+            background: white; border-radius: 24px; overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.4s ease;
+            display: flex; flex-direction: column; border: 1px solid #f1f5f9;
         }
-        .card-evento:hover { transform: translateY(-12px); box-shadow: 0 20px 45px rgba(0,78,146,0.2); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        .card-img { width: 100%; height: 230px; background-size: cover; background-position: center; }
+        .card-img { width: 100%; height: 220px; background-size: cover; background-position: center; position: relative; }
+        .card-badge { position: absolute; top: 15px; left: 15px; background: #004e92; color: #fff; padding: 5px 12px; border-radius: 8px; font-size: 11px; font-weight: bold; }
         
-        .card-content { padding: 30px; }
-        .card-content h4 { font-size: 24px; color: #004e92; margin-bottom: 12px; }
-        .card-content p { font-size: 15px; color: #4b5563; line-height: 1.6; }
+        .card-body { padding: 25px; flex-grow: 1; }
+        .card-body h4 { font-size: 1.4rem; color: #0f172a; margin-bottom: 12px; }
+        .card-body p { color: #475569; font-size: 0.95rem; line-height: 1.6; }
 
-        .badge-live { 
-            position: absolute; top: 20px; right: 20px; background: #e74c3c; 
-            color: white; padding: 5px 15px; border-radius: 50px; 
-            font-size: 12px; font-weight: bold; animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-
-        /* CARD DE CIDADE INCRÍVEL */
-        .incrivel-banner {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('vibe-cidade.jpg');
-            background-size: cover; padding: 80px 40px; border-radius: 40px;
-            color: white; text-align: center; margin: 60px 0;
-        }
-        .incrivel-banner h2 { font-size: 40px; color: #f1c40f; margin-bottom: 20px; }
-
-        .btn-bora { 
-            display: inline-block; margin-top: 25px; padding: 15px 40px; 
+        .btn-card { 
+            display: inline-block; margin-top: 20px; padding: 10px 25px; 
             background: #f1c40f; color: #000; text-decoration: none; 
-            border-radius: 50px; font-weight: 900; text-transform: uppercase;
+            border-radius: 12px; font-weight: bold; font-size: 13px; transition: 0.3s;
         }
+        .btn-card:hover { background: #d4ac0d; }
 
-        footer { background: #000428; color: white; padding: 60px; text-align: center; }
-        .data-cidade { font-size: 35px; color: #f1c40f; font-weight: 900; letter-spacing: 3px; }
+        /* FOOTER PREMIUM */
+        footer { background: #0f172a; color: white; padding: 80px 20px; text-align: center; margin-top: 80px; }
+        .footer-info h3 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #f1c40f; margin-bottom: 10px; }
+        .footer-links { margin-top: 30px; display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>LAURO DE FREITAS <span style="color: #f1c40f;">VIBE</span></h1>
-        <p>A Cidade Onde Tudo Acontece</p>
+        <h2 style="font-family: 'Montserrat'; letter-spacing: 2px;">LAURO DE FREITAS <span style="color: #f1c40f;">360°</span></h2>
     </header>
 
     <section id="hero">
-        <div>
-            <h2 style="font-size: 50px; font-weight: 900;">INCRÍVEL POR NATUREZA</h2>
-            <p style="font-size: 20px;">Lazer, Shows e a Melhor Energia da Bahia</p>
+        <div class="hero-content">
+            <h1>UMA CIDADE INCRÍVEL</h1>
+            <p>HISTÓRIA • SABOR • ENERGIA • PROGRESSO</p>
         </div>
     </section>
 
     <div class="container">
         
-        <!-- POR QUE É INCRÍVEL -->
-        <div class="incrivel-banner">
-            <h2>POR QUE LAURO É SENSACIONAL?</h2>
-            <p>Imagine uma cidade que tem a modernidade dos grandes shoppings, o clima de vila de pescadores e as praias mais desejadas da região metropolitana. Lauro de Freitas é o equilíbrio perfeito entre o progresso e o pé na areia!</p>
-            <a href="#eventos" class="btn-bora">Vem ver o agito!</a>
+        <!-- NÚMEROS DA CIDADE -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fa-solid fa-users"></i>
+                <h2>203.334</h2>
+                <p>Habitantes</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>4º PIB</h2>
+                <p>Maior da Bahia</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-map"></i>
+                <h2>19</h2>
+                <p>Bairros Oficiais</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <h2>6 km</h2>
+                <p>De Litoral Único</p>
+            </div>
         </div>
 
-        <!-- SEÇÃO DE EVENTOS -->
-        <h3 class="secao-titulo" id="eventos"><i class="fa-solid fa-guitar"></i> Shows & Eventos</h3>
-        
-        <div class="grid-cards">
-            <!-- Shows na Praça -->
-            <div class="card-evento">
-                <span class="badge-live">AO VIVO</span>
+        <!-- GASTRONOMIA -->
+        <h3 class="secao-titulo"><i class="fa-solid fa-utensils"></i> O Sabor de Lauro</h3>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('kimukeka.jpg');"></div>
+                <div class="card-body">
+                    <span class="card-badge">CLÁSSICO</span>
+                    <h4>Ki-Mukeka Vilas</h4>
+                    <p>Referência em culinária baiana. O lugar onde a moqueca encontra a brisa do mar de Vilas.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('acaraje.jpg');"></div>
+                <div class="card-body">
+                    <span class="card-badge">RAIZ</span>
+                    <h4>Acarajé da Márcia</h4>
+                    <p>Não é apenas um acarajé, é um patrimônio de Lauro. Crocante, quentinho e com o melhor vatapá da região.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('tche.jpg');"></div>
+                <div class="card-body">
+                    <span class="card-badge">CHURRASCO</span>
+                    <h4>Tche Pichara</h4>
+                    <p>O ponto de encontro tradicional na Estrada do Coco para os amantes de cortes selecionados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHOWS E AGITO -->
+        <h3 class="secao-titulo"><i class="fa-solid fa-bolt"></i> Eventos e Emoção</h3>
+        <div class="cards-grid">
+            <div class="card">
                 <div class="card-img" style="background-image: url('praca-show.jpg');"></div>
-                <div class="card-content">
-                    <h4>Shows na Praça da Matriz</h4>
-                    <p>O coração do Centro ferve com apresentações gratuitas! De grandes nomes da música baiana a talentos locais, a Praça da Matriz é o palco da nossa cultura.</p>
+                <div class="card-body">
+                    <span class="card-badge" style="background: #e74c3c;">SHOWS</span>
+                    <h4>Palco da Matriz</h4>
+                    <p>Os grandes shows acontecem aqui! A Praça da Matriz reúne milhares de pessoas em eventos gratuitos inesquecíveis.</p>
                 </div>
             </div>
-
-            <!-- Carnaval de Lauro -->
-            <div class="card-evento">
+            <div class="card">
                 <div class="card-img" style="background-image: url('carnaval.jpg');"></div>
-                <div class="card-content">
-                    <h4>Carnaval de Lauro</h4>
-                    <p>O tradicional desfile de blocos e trios elétricos! Um carnaval raiz, seguro e cheio de alegria que arrasta multidões pelas ruas da cidade.</p>
-                </div>
-            </div>
-
-            <!-- Réveillon -->
-            <div class="card-evento">
-                <div class="card-img" style="background-image: url('reveillon.jpg');"></div>
-                <div class="card-content">
-                    <h4>Réveillon nas Praias</h4>
-                    <p>Queima de fogos inesquecível em Vilas, Ipitanga e Buraquinho. Pé na areia, música boa e a melhor virada de ano da Bahia.</p>
+                <div class="card-body">
+                    <span class="card-badge" style="background: #e74c3c;">FESTA</span>
+                    <h4>Carnaval de Rua</h4>
+                    <p>A energia do trio elétrico passando pelo Centro e a alegria dos blocos de bairro.</p>
                 </div>
             </div>
         </div>
 
-        <!-- HISTÓRIA (IGREJA) -->
+        <!-- HISTÓRIA -->
         <h3 class="secao-titulo"><i class="fa-solid fa-landmark"></i> História Viva</h3>
-        <div class="grid-cards">
-            <div class="card-evento" style="border-left: 8px solid #004e92;">
+        <div class="cards-grid">
+            <div class="card">
                 <div class="card-img" style="background-image: url('igreja.jpg');"></div>
-                <div class="card-content">
+                <div class="card-body">
+                    <span class="card-badge" style="background: #64748b;">PATRIMÔNIO</span>
                     <h4>Igreja de Santo Amaro</h4>
-                    <p>Fundada em 1584, é o monumento mais icônico. Além da fé, a praça ao redor é onde os moradores se reúnem para as grandes festas populares.</p>
+                    <p>Desde 1584 guardando a fé e a cultura. Um dos marcos arquitetônicos mais importantes do Brasil.</p>
                 </div>
             </div>
-            
-            <div class="card-evento" style="border-left: 8px solid #27ae60;">
+            <div class="card">
                 <div class="card-img" style="background-image: url('buraco.jpg');"></div>
-                <div class="card-content">
-                    <h4>Orla Renovada</h4>
-                    <p>A orla de Lauro de Freitas é um show à parte. Ciclovias, iluminação LED e quiosques modernos para curtir o dia e a noite.</p>
+                <div class="card-body">
+                    <span class="card-badge" style="background: #64748b;">ORIGEM</span>
+                    <h4>Santo Amaro de Ipitanga</h4>
+                    <p>Você sabia? Este era o nome de Lauro até 1962. Uma história de luta e emancipação política.</p>
                 </div>
             </div>
         </div>
@@ -155,9 +193,16 @@
     </div>
 
     <footer>
-        <p>A CIDADE DO CORAÇÃO</p>
-        <div class="data-cidade">31 JULHO 1962</div>
-        <p style="margin-top: 25px; opacity: 0.6;">© 2026 Lauro de Freitas Oficial | Sinta essa energia!</p>
+        <div class="footer-info">
+            <p>EMANCIPADA EM</p>
+            <h3>31 de Julho de 1962</h3>
+            <p style="opacity: 0.6; margin-top: 20px;">Lauro de Freitas, Bahia, Brasil - Onde o sol brilha mais forte.</p>
+        </div>
+        <div class="footer-links">
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-youtube"></i>
+        </div>
     </footer>
 
 </body>
