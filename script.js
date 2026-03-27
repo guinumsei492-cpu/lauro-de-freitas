@@ -1,40 +1,61 @@
-const fotosReais = [
-    {
-        titulo: "Buraco da Velha (Vilas)",
-        texto: "A piscina natural mais famosa da região de Vilas do Atlântico.",
-        imagem: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg/800px-Praia_de_Ipitanga_-_Lauro_de_Freitas.jpg"
-    },
-    {
-        titulo: "Parque Shopping Bahia",
-        texto: "O principal centro de compras e lazer da nossa cidade.",
-        imagem: "https://i.imgur.com/vHpxl4Z.jpeg"
-    },
-    {
-        titulo: "Praia de Vilas",
-        texto: "Orla paradisíaca com coqueirais e águas quentes.",
-        imagem: "https://i.imgur.com/yK6XU4Q.jpeg"
-    }
-];
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lauro de Freitas | O Portal da Cidade</title>
+    <link rel="stylesheet" href="style.css?v=final">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
 
-function carregarSite() {
-    const container = document.getElementById('lista-final');
-    
-    if (container) {
-        container.innerHTML = ""; // Limpa o que tiver lá
-        
-        fotosReais.forEach(item => {
-            container.innerHTML += `
-                <div style="background:white; border-radius:15px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
-                    <img src="${item.imagem}" style="width:100%; height:250px; object-fit:cover; display:block;">
-                    <div style="padding:20px;">
-                        <h3 style="margin:0 0 10px; color:#004aad;">${item.titulo}</h3>
-                        <p style="margin:0; color:#666; font-size:14px;">${item.texto}</p>
-                    </div>
-                </div>
-            `;
-        });
-    }
-}
+    <header>
+        <div class="nav-container">
+            <div class="logo">LAURO<span>CITY</span></div>
+            <div id="countdown-box">Próximo Aniversário: <span id="countdown">--:--:--</span></div>
+        </div>
+    </header>
 
-// Roda assim que o site abrir
-window.onload = carregarSite;
+    <section id="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>A Capital Nacional do Surf e do Progresso</h1>
+            <p>De Santo Amaro de Ipitanga ao maior polo comercial da Bahia.</p>
+            <a href="#pontos" class="btn-principal">Explorar a Cidade</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- SEÇÃO HISTÓRIA -->
+        <section id="historia" class="card-foda">
+            <h2>31 de Julho de 1962</h2>
+            <p>O dia em que a história mudou. Lauro de Freitas não é apenas um "anexo" de Salvador; é uma potência independente que carrega o nome do político que lutou pelo povo baiano.</p>
+            <div class="stats">
+                <div class="stat-item"><b>192km²</b><span>Área Total</span></div>
+                <div class="stat-item"><b>+200k</b><span>Habitantes</span></div>
+                <div class="stat-item"><b>7km</b><span>De Praias</span></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PONTOS TURÍSTICOS (GERADOS PELO JS) -->
+        <h2 class="titulo-secao">Picos Obrigatórios</h2>
+        <div id="grade-principal" class="grid-foda"></div>
+
+        <!-- SEÇÃO CURIOSIDADES -->
+        <section class="curiosidades">
+            <h3>Você sabia?</h3>
+            <ul>
+                <li>🌊 <b>Ipitanga:</b> É considerada uma das melhores praias do Brasil para o surf.</li>
+                <li>✈️ <b>Estratégica:</b> Lauro é a única cidade que faz fronteira direta com o Aeroporto Internacional.</li>
+                <li>🏢 <b>Shopping:</b> Temos um dos maiores índices de m² de shopping por habitante da Bahia.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com ⚡ em Lauro de Freitas | 2026</p>
+    </footer>
+
+    <script src="script.js?v=final"></script>
+</body>
+</html>
