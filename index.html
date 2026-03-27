@@ -3,31 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lauro de Freitas Oficial</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Lauro de Freitas | O Portal da Cidade</title>
+    <link rel="stylesheet" href="style.css?v=final">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body style="background:#f4f4f4; font-family:'Poppins', sans-serif; margin:0; padding:0;">
+<body>
 
-    <header style="background:#004aad; color:white; padding:40px 20px; text-align:center;">
-        <h1 style="margin:0;">Lauro de Freitas 🌴</h1>
-        <p style="margin:5px 0 0;">Emancipada em 31 de Julho de 1962</p>
+    <header>
+        <div class="nav-container">
+            <div class="logo">LAURO<span>CITY</span></div>
+            <div id="countdown-box">Próximo Aniversário: <span id="countdown">--:--:--</span></div>
+        </div>
     </header>
 
-    <div style="max-width:1000px; margin:40px auto; padding:0 20px;">
-        <h2 style="text-align:center; color:#333;">Pontos Turísticos Reais</h2>
-        
-        <!-- O ID TEM QUE SER EXATAMENTE ESSE: lista-final -->
-        <div id="lista-final" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; margin-top:30px;">
-            <!-- O JAVASCRIPT VAI COLOCAR AS FOTOS AQUI -->
+    <section id="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>A Capital Nacional do Surf e do Progresso</h1>
+            <p>De Santo Amaro de Ipitanga ao maior polo comercial da Bahia.</p>
+            <a href="#pontos" class="btn-principal">Explorar a Cidade</a>
         </div>
-    </div>
+    </section>
 
-    <footer style="text-align:center; padding:30px; background:#333; color:white; margin-top:50px;">
-        <p>&copy; 2026 - Lauro de Freitas City</p>
+    <main class="container">
+        <!-- SEÇÃO HISTÓRIA -->
+        <section id="historia" class="card-foda">
+            <h2>31 de Julho de 1962</h2>
+            <p>O dia em que a história mudou. Lauro de Freitas não é apenas um "anexo" de Salvador; é uma potência independente que carrega o nome do político que lutou pelo povo baiano.</p>
+            <div class="stats">
+                <div class="stat-item"><b>192km²</b><span>Área Total</span></div>
+                <div class="stat-item"><b>+200k</b><span>Habitantes</span></div>
+                <div class="stat-item"><b>7km</b><span>De Praias</span></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PONTOS TURÍSTICOS (GERADOS PELO JS) -->
+        <h2 class="titulo-secao">Picos Obrigatórios</h2>
+        <div id="grade-principal" class="grid-foda"></div>
+
+        <!-- SEÇÃO CURIOSIDADES -->
+        <section class="curiosidades">
+            <h3>Você sabia?</h3>
+            <ul>
+                <li>🌊 <b>Ipitanga:</b> É considerada uma das melhores praias do Brasil para o surf.</li>
+                <li>✈️ <b>Estratégica:</b> Lauro é a única cidade que faz fronteira direta com o Aeroporto Internacional.</li>
+                <li>🏢 <b>Shopping:</b> Temos um dos maiores índices de m² de shopping por habitante da Bahia.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com ⚡ em Lauro de Freitas | 2026</p>
     </footer>
 
-    <!-- v=500 força a atualização total -->
-    <script src="script.js?v=500"></script>
+    <script src="script.js?v=final"></script>
 </body>
 </html>
