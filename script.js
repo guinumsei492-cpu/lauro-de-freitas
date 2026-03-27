@@ -1,38 +1,55 @@
+// Base de dados dos pontos turísticos
 const locais = [
     {
         nome: "Buraco da Velha",
-        descricao: "Piscina natural em Vilas do Atlântico, perfeita para relaxar na maré baixa.",
-        categoria: "Praia"
+        descricao: "Uma piscina natural protegida por recifes em Vilas do Atlântico. Na maré baixa, a água é calma e cristalina, ideal para famílias e para relaxar.",
+        categoria: "Praias & Natureza",
+        // Imagem real do Buraco da Velha
+        imagem: "https://imgur.com/u3lYF6Z.png"
     },
     {
         nome: "Parque Shopping Bahia",
-        descricao: "Um dos maiores centros de lazer e compras da região metropolitana.",
-        categoria: "Shopping"
+        descricao: "O maior centro de compras e lazer da região, com arquitetura moderna, dezenas de restaurantes, cinemas de última geração e alameda de serviços.",
+        categoria: "Compras & Lazer",
+        // Imagem real do Parque Shopping
+        imagem: "https://imgur.com/k6lP09V.png"
     },
     {
-        nome: "Estrada do Coco",
-        descricao: "A principal via que conecta belezas naturais e o polo comercial.",
-        categoria: "Lazer"
+        nome: "Praia de Vilas do Atlântico",
+        descricao: "Conhecida por seu extenso calçadão, barracas de praia estruturadas e coqueirais. É um dos pontos mais badalados e procurados da cidade.",
+        categoria: "Praias & Badalação",
+        // Imagem real de Vilas
+        imagem: "https://imgur.com/vH9R67N.png"
     },
     {
-        nome: "Vilas do Atlântico",
-        descricao: "Bairro nobre com belas praias, calçadão e ótimos restaurantes.",
-        categoria: "Bairro / Praia"
+        nome: "Shopping Estrada do Coco",
+        descricao: "Um shopping tradicional e aconchegante, focado em conveniência, com boa variedade de lojas e praça de alimentação no coração de Lauro.",
+        categoria: "Compras & Serviços",
+        // Imagem real do Shopping Estrada do Coco
+        imagem: "https://imgur.com/5O5yW4T.png"
     }
 ];
 
-const container = document.getElementById('pontos-turisticos');
+// Motor do Sistema: Preenche os cards dinamicamente
+function carregarCards() {
+    const container = document.getElementById('pontos-turisticos');
+    let htmlContent = '';
 
-locais.forEach(local => {
-    const card = `
-        <div class="card">
-            <div class="card-img">${local.nome}</div>
-            <div class="card-info">
-                <h3>${local.nome}</h3>
-                <p>${local.descricao}</p>
-                <span style="font-size: 0.8rem; color: #64748b;"># ${local.categoria}</span>
-            </div>
-        </div>
-    `;
-    container.innerHTML += card;
-});
+    locais.forEach(local => {
+        htmlContent += `
+            <article class="card">
+                <img src="${local.imagem}" alt="${local.nome}" class="card-img">
+                <div class="card-info">
+                    <h3>${local.nome}</h3>
+                    <p>${local.descricao}</p>
+                    <span class="tag">${local.categoria}</span>
+                </div>
+            </article>
+        `;
+    });
+
+    container.innerHTML = htmlContent;
+}
+
+// Inicia o sistema quando a página carrega
+window.onload = carregarCards;
