@@ -62,6 +62,25 @@
 
 
 
+
+/* ANIMAÇÕES */
+.hero-text { opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease forwards; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card, .tour-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
 </style>
 </head>
 <body>
@@ -73,7 +92,7 @@
     <section id="hero">
         <div class="hero-text">
             <h1>LAURO DE FREITAS</h1>
-            <p><i class="fa-solid fa-calendar-check"></i> DESDE 31 DE JULHO DE 1962</p>
+            <p><i class="fa-solid fa-landmark"></i> Surgiu de Santo Amaro de Ipitanga e tornou-se município em 1962</p>
         </div>
     </section>
 
@@ -167,16 +186,21 @@
         <p>A cidade de Lauro de Freitas nasceu em</p>
         <div class="footer-date">31 de Julho de 1962</div>
         <p style="margin-top: 20px; opacity: 0.5;">Lauro de Freitas © 2026 | Desenvolvido para ser Foda.</p>
-        
-
-    <footer>
-        <p>A cidade de Lauro de Freitas nasceu em</p>
-        <div class="footer-date">31 de Julho de 1962</div>
-        <p style="margin-top: 20px; opacity: 0.5;">Lauro de Freitas © 2026 | Desenvolvido para ser Foda.</p>
     </footer>
 
     <script>
         const counters = document.querySelectorAll('.counter');
+
+        // ANIMAÇÃO AO ROLAR
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat-card, .tour-card').forEach(el => observer.observe(el));
         counters.forEach(counter => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
