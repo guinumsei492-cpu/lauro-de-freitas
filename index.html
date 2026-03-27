@@ -84,6 +84,13 @@ footer{background:#000428;color:#fff;text-align:center;padding:40px;margin-top:4
 <p>Centro moderno.</p>
 <a class="btn" href="#">Mapa</a>
 </div>
+<div class="tour-card">
+<img src="igreja.jpg">
+<div style="padding:20px">
+<h4>Igreja Matriz</h4>
+<p>Marco histórico e religioso da cidade.</p>
+<a class="btn" href="#">Mapa</a>
+</div>
 </div>
 </div>
 
@@ -99,11 +106,6 @@ counters.forEach(c=>{let update=()=>{let t=+c.dataset.target;let n=+c.innerText;
 
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('show')}})});
 document.querySelectorAll('.stat-card,.tour-card').forEach(el=>obs.observe(el));
-</script>
-
-</body>
-</html>
-bserve(el));
 </script>
 
 </body>
